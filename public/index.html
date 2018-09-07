@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8;">
+<link rel="stylesheet" href="style.css" type="text/css">
+<script type="text/javascript" src="gen2.js"></script>
+<title>Generator numerów PESEL, dowodu osobistego, NIP, IBAN, REGON</title>
+<!--<script type="text/javascript">-->
+<!--var _gaq = _gaq || []; _gaq.push(['_setAccount', 'UA-19854198-1']); _gaq.push(['_trackPageview']);-->
+<!--(function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;-->
+<!--ga.src = 'ga.js';-->
+<!--var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s); })();-->
+<!--</script>-->
+</head>
+<body>
+<script type="text/javascript" src="timestamp.js" charset="utf-8"></script>
+<script type="text/javascript" src="graph-calc.js" charset="utf-8"></script>
+<script type="text/javascript" src="auto-complete.js" charset="utf-8"></script>
+
+
+<div id="wm-ipp" lang="en" style="display:none;direction:ltr;">
+</div>
+<div id="content" style="display:none;">
+<div id="gen_pesel" class="gen">
+    <h1>Generator numerów PESEL</h1>
+    <p><input type="text" id="pesel" style="width:10em;" readonly="readonly" onkeydown="return AssignPesel_kd(event);">
+    <button onclick="return AssignPesel();">Generuj</button></p>
+    <p><label><input type="checkbox" id="pesel_m" onclick="peselClicked(this);"> Mężczyzna</label>
+       <label><input type="checkbox" id="pesel_f" onclick="peselClicked(this);"> Kobieta</label></p>
+	<p><label>Wiek/data urodzenia<br>
+	<input type="text" id="pesel_birth" maxlength="16" onkeydown="return AssignPesel_kd(event);">
+	</label></p>
+	<table cellspacing="0">
+	<tr class="sect"><th rowspan="4">wiek</th>
+		<td>20 - 25 lat (rocznikowo)</td><td><button onclick="setBirth('20-25');">Wybierz</button></td>
+	</tr>
+	<tr><td>powyżej 20 lat</td><td><button onclick="setBirth('20-');">Wybierz</button></td>
+	</tr>
+	<tr><td>do 35 lat</td><td><button onclick="setBirth('-35');">Wybierz</button></td>
+	</tr>
+	<tr><td>42 lata</td><td><button onclick="setBirth('42');">Wybierz</button></td>
+	</tr>
+	<tr class="sect"><th rowspan="4">lata urodzenia</th>
+		<td>w latach 1975-1990</td><td><button onclick="setBirth('1975-1990');">Wybierz</button></td>
+		</tr>
+	<tr><td>po roku 1960</td><td><button onclick="setBirth('1960-');">Wybierz</button></td>
+	</tr>
+	<tr><td>do roku 1990</td><td><button onclick="setBirth('-1990');">Wybierz</button></td>
+	</tr>
+	<tr><td>w roku 1980</td><td><button onclick="setBirth('1980');">Wybierz</button></td>
+	</tr>
+	<tr class="sect"><th rowspan="4" class="last">data urodzenia</th>
+	    <td>w roku 1980</td><td><button onclick="setBirth('1980');">Wybierz</button></td>
+		</tr>
+	<tr><td>w marcu 1980 roku</td><td><button onclick="setBirth('1980-03');">Wybierz</button></td>
+	</tr>
+	<tr><td> 7. marca 1980 roku</td><td><button onclick="setBirth('1980-03-07');">Wybierz</button></td>
+	</tr>
+	<tr class="last"><td> 12. kwietnia 1976 roku</td><td><button onclick="setBirth('12/04/1976');">Wybierz</button></td>
+	</tr>
+	</table>
+
+</div>
+<div id="gen_icn" class="gen">
+    <h1>Generator numerów dowodu osobistego</h1>
+    <p><input type="text" id="icn" style="width:10em;" readonly="readonly" onkeydown="return AssignICN_kd(event);">
+    <button onclick="return AssignICN();">Generuj</button></p>
+   
+</div>
+<div id="gen_nip" class="gen">
+    <h1>Generator numerów NIP</h1>
+    <p><input type="text" id="nip" style="width:10em;" readonly="readonly" onkeydown="return AssignNIP_kd(event);">
+    <button onclick="return AssignNIP();">Generuj</button></p>
+   
+</div>
+<div id="gen_iban" class="gen">
+    <h1>Generator numerów IBAN</h1>
+    <p class="comment">(kont bankowych)</p>
+    <p><select id="kod_kraju" style="width:4em" onkeydown="AssignIBAN_kd(event);">
+        <option value="24">AD</option>
+        <option value="20">AT</option>
+        <option value="16">BE</option>
+        <option value="20">BA</option>
+        <option value="22">BG</option>
+        <option value="21">CH</option>
+        <option value="28">CY</option>
+        <option value="24">CZ</option>
+        <option value="22">DE</option>
+        <option value="18">DK</option>
+        <option value="20">EE</option>
+        <option value="24">ES</option>
+        <option value="18">FO</option>
+        <option value="18">FI</option>
+        <option value="27">FR</option>
+        <option value="22">GB</option>
+        <option value="23">GI</option>
+        <option value="18">GL</option>
+        <option value="27">GR</option>
+        <option value="28">HU</option>
+        <option value="21">HR</option>
+        <option value="22">IE</option>
+        <option value="26">IS</option>
+        <option value="27">IT</option>
+        <option value="21">LI</option>
+        <option value="20">LT</option>
+        <option value="20">LU</option>
+        <option value="21">LV</option>
+        <option value="24">MA</option>
+        <option value="27">MC</option>
+        <option value="19">MK</option>
+        <option value="31">MT</option>
+        <option value="18">NL</option>
+        <option value="15">NO</option>
+        <option value="28" selected="selected">PL</option>
+        <option value="25">PT</option>
+        <option value="24">RO</option>
+        <option value="22">RS</option>
+        <option value="24">SE</option>
+        <option value="19">SI</option>
+        <option value="24">SK</option>
+        <option value="27">SM</option>
+        <option value="24">TN</option>
+        <option value="26">TR</option>
+    </select>  
+    <select id="kod_banku" style="width:10em" onkeydown="AssignIBAN_kd(event);">
+<option value="">wybierz bank</option>
+<option value="2490">Alior Bank SA</option>
+<option value="1060">Bank BPH SA</option>
+<option value="2190">Bank DnB NORD Polska SA</option>
+<option value="2030">Bank Gospodarki Żywnościowej SA</option>
+<option value="1130">Bank Gospodarstwa Krajowego</option>
+<option value="1030">Bank Handlowy w Warszawie SA</option>
+<option value="1160">Bank Millennium SA</option>
+<option value="1540">Bank Ochrony Środowiska SA</option>
+<option value="2210">Bank of Tokyo-Mitsubishi UFJ (Polska) SA</option>
+<option value="1320">Bank Pocztowy SA</option>
+<option value="1240">Bank Polska Kasa Opieki SA</option>
+<option value="1930">BANK POLSKIEJ SPÓŁDZIELCZOŚCI SA</option>
+<option value="1090">Bank Zachodni WBK SA</option>
+<option value="1600">BNP PARIBAS BANK POLSKA SA</option>
+<option value="2290">BPI Bank Polskich Inwestycji SA</option>
+<option value="2150">BRE Bank Hipoteczny SA</option>
+<option value="2540">Citibank Europe plc (Publiczna Spółka Akcyjna) Oddział w Polsce</option>
+<option value="1940">Credit Agricole Bank Polska SA</option>
+<option value="1910">Deutsche Bank PBC SA</option>
+<option value="1880">Deutsche Bank Polska SA</option>
+<option value="1740">DZ BANK Polska SA</option>
+<option value="1470">Euro Bank SA</option>
+<option value="2070">FCE Bank Polska SA</option>
+<option value="2140">Fiat Bank Polska SA</option>
+<option value="1870">FM Bank PBP SA</option>
+<option value="2480">Getin Noble Bank SA</option>
+<option value="1280">HSBC Bank Polska SA</option>
+<option value="1950">Idea Bank SA</option>
+<option value="1050">ING Bank Śląski SA</option>
+<option value="1680">INVEST - BANK SA</option>
+<option value="1140">mBank SA</option>
+<option value="1580">Mercedes-Benz Bank Polska SA</option>
+<option value="1300">Meritum Bank ICB SA</option>
+<option value="1010">Narodowy Bank Polski</option>
+<option value="1440">NORDEA BANK POLSKA SA</option>
+<option value="1890">Pekao Bank Hipoteczny SA</option>
+<option value="1020">Powszechna Kasa Oszczędności Bank Polski SA</option>
+<option value="2000">Rabobank Polska SA</option>
+<option value="1750">Raiffeisen Bank Polska SA</option>
+<option value="1670">RBS Bank (Polska) SA</option>
+<option value="2120">Santander Consumer Bank SA</option>
+<option value="1610">SGB-Bank SA</option>
+<option value="2160">Toyota Bank Polska SA</option>
+<option value="2130">VOLKSWAGEN BANK POLSKA SA</option>
+<option value="" disabled="disabled">---</option>
+<option value="2510">Aareal Bank Aktiengesellschaft (Spółka Akcyjna) - Oddział w Polsce</option>
+<option value="2470">Banco Espirito Santo de Investimento, S.A. Spółka Akcyjna Oddział w Polsce</option>
+<option value="2380">Banco Mais S.A. (SA) Oddział w Polsce</option>
+<option value="2600">Bank of China (Luxembourg)S.A. Spółka Akcyjna Oddział w Polsce</option>
+<option value="2240">Banque PSA Finance SA Oddział w Polsce</option>
+<option value="2350">BNP PARIBAS SA Oddział w Polsce</option>
+<option value="2430">BNP Paribas Securities Services SKA Oddział w Polsce</option>
+<option value="2390">CAIXABANK, S.A. (SPÓŁKA AKCYJNA)ODDZIAŁ W POLSCE</option>
+<option value="2360">Danske Bank A/S SA Oddział w Polsce</option>
+<option value="2680">DZ BANK AG Deutsche Zentral-Genossenschaftsbank, Frankfurt am Main Spóka Akcyjna Oddział w Polsce</option>
+<option value="2410">Elavon Financial Services Limited (Spółka z ograniczoną odpowiedzialnością) Oddział w Polsce</option>
+<option value="2650">EUROCLEAR Bank SA/NV (Spółka Akcyjna) - Oddział w Polsce</option>
+<option value="2450">HSBC Bank plc (SA) Oddział w Polsce (w organizacji)</option>
+<option value="2550">Ikano Bank GmbH (Sp. z o.o.) Oddział w Polsce</option>
+<option value="2620">Industrial and Commercial Bank of China (Europe) S.A. (Spółka Akcyjna) Oddział w Polsce</option>
+<option value="2660">Intesa Sanpaolo S.p.A. Spółka Akcyjna Oddział w Polsce</option>
+<option value="2580">J.P. Morgan Europe Limited Sp. z o.o. Oddział w Polsce</option>
+<option value="2560">Nordea Bank AB SA Oddział w Polsce</option>
+<option value="2320">Nykredit Realkredit A/S SA - Oddział w Polsce</option>
+<option value="2640">RCI Banque Spółka Akcyjna Oddział w Polsce</option>
+<option value="2630">Saxo Bank A/S Spółka Akcyjna Oddział w Polsce</option>
+<option value="2370">Skandinaviska Enskilda Banken AB (SA) - Oddział w Polsce</option>
+<option value="1840">Societe Generale SA Oddział w Polsce</option>
+<option value="2250">Svenska Handelsbanken AB SA Oddział w Polsce</option>
+<option value="2270">Sygma Banque Societe Anonyme (SA) Oddział w Polsce</option>
+<option value="2300">The Royal Bank of Scotland N.V. SA Oddział w Polsce (w organizacji)</option>
+<option value="2570">UBS Limited (spółka z ograniczoną odpowiedzialnością) Oddział w Polsce</option>
+<option value="2400">UNIBON-Sporitelni a Uverni Druzstvo Spółdzielnia Oszczędnościowa i Kredytowa Oddział w Polsce w likwidacji</option>
+<option value="2610">Vanquis Bank Limited (spółka z ograniczoną odpowiedzialnością) Oddział w Polsce</option>
+<option value="2670">Western Union International Bank GmbH, Sp. z o.o. Oddział w Polsce</option>
+<option value="2590">ZUNO BANK AG SA Oddział w Polsce (w organizacji)</option>
+    </select>
+    <input type="text" id="kod" style="width:10em" value="początkowe cyfry" maxlength="28" onclick="this.value=''; this.onclick=null;" onkeydown="AssignIBAN_kd(event);">
+    <input type="text" id="iban" style="width:24em" readonly="readonly" onkeydown="return AssignIBAN_kd(event);"><br>
+    <button onclick="return AssignIBAN(-1);">Generuj</button> 
+    <button onclick="return AssignIBAN(16);">Generuj krótki</button> 
+    <button onclick="return AssignIBAN(32);">Generuj długi</button></p>
+   
+    <p><a href="http://www.nbp.pl/home.aspx?f=/banki_w_polsce/ewidencja/ewidencja.html" rel="nofollow">Ewidencja numerów banków w Polsce</a></p>
+</div>
+<div id="gen_regon" class="gen">
+    <h1>Generator numerów REGON</h1>
+    <p><input type="text" id="regon" style="width:10em;" readonly="readonly" onkeydown="return AssignRegon_kd(event);">
+    <button onclick="return AssignRegon9();">Generuj 9</button> <button onclick="return AssignRegon14();">Generuj 14</button></p>
+   
+</div>
+   
+</div>
+   
+<script type="text/javascript">
+// <![CDATA[
+    document.getElementById('content').style.display = 'block';
+// ]]>    
+</script><noscript><p class="error">Wymagane jest włączenie obsługi JavaScript!</p></noscript>
+   
+</body></html>
