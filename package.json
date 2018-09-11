@@ -1,0 +1,22 @@
+{
+  "name": "bg-generator",
+  "version": "1.0.0",
+  "description": "\"# bg-generator\"",
+  "main": "app.js",
+  "scripts": {
+    "start": "node ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmmuller/bg-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmmuller/bg-generator/issues"
+  },
+  "homepage": "https://github.com/mmmuller/bg-generator#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
